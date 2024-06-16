@@ -4,14 +4,13 @@ name: Auth Service CI
 on:
   workflow_dispatch:
   push:
-    branches:
-      - "*"
+    branches-ignore: ["main", "test"]
     paths:
       - "models/**"
       - "routes/**"
       - "**/*.js"
   pull_request:
-    branches: ["main", "dev", "test"]
+    branches: ["main", "test"]
     paths:
       - "models/**"
       - "routes/**"

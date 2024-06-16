@@ -1,8 +1,8 @@
-name: Test environment deployment
+name: Production environment deployment
 
 on:
     push:
-        branches: ["test"]
+        branches: ["main"]
         paths:
             - "models/**"
             - "routes/**"
@@ -26,7 +26,7 @@ jobs:
                 uses: docker/build-push-action@v5
                 with:
                     push: true
-                    tags: tonyq2k3/auth-microservice:${{ github.sha }}
+                    tags: tonyq2k3/auth-microservice:latest
         
     Update-manifest:
         runs-on: ubuntu-latest
@@ -45,8 +45,8 @@ jobs:
                 run: |
                     git config --global user.email "ntbquoc2015@gmail.com"
                     git config --global user.name "TonyQ2k3"
-                    echo "Update frontend version to ${{ github.sha }}"
-                    sed -i 's#tonyq2k3/auth-microservice:[^[:space:]]*$#tonyq2k3/auth-microservice:${{ github.sha }}#g' ./test/microservices/auth-service-deploy.yaml
-                    git add ./test/microservices/auth-service-deploy.yaml
-                    git commit -m "Update auth service version to ${{ github.sha }} in test environment"
+                    echo "Update frontend version to lastest version"
+                    sed -i 's#tonyq2k3/auth-microservice:[^[:space:]]*$#tonyq2k3/auth-microservice:latest#g' ./production/microservices/auth-service-deploy.yaml
+                    git add ./production/microservices/auth-service-deploy.yaml
+                    git commit -m "Update auth service version to latest version in production environment"
                     git push origin main
