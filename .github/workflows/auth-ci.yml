@@ -6,14 +6,12 @@ on:
   push:
     branches-ignore: ["main", "test"]
     paths:
-      - "models/**"
-      - "routes/**"
+      - "src/**"
       - "**/*.js"
   pull_request:
     branches: ["main", "test"]
     paths:
-      - "models/**"
-      - "routes/**"
+      - "src/**"
       - "**/*.js"
     
 

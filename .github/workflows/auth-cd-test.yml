@@ -4,8 +4,7 @@ on:
     push:
         branches: ["test"]
         paths:
-            - "models/**"
-            - "routes/**"
+            - "src/**"
             - "**/*.js"
 
 jobs:
