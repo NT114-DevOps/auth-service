@@ -26,5 +26,5 @@ app.get('/get-cookie', (req, res) => {
 const authRoutes = require('./routes/authRoutes');
 app.use(authRoutes);
 
-
+// Export app
 module.exports = app;
